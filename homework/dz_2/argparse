@@ -1,0 +1,14 @@
+import argparse
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--podstr')
+    parser.add_argument('--podmas', nargs=2)
+    parser.add_argument('--deli')
+    parser.add_argument('--bubble')
+    parser.add_argument('--nargs-int-type', nargs='+', type=int)
+    args = parser.parse_args()
+
+for _, value in parser.parse_args()._get_kwargs():
+    if value is not None:
+        print(value)
