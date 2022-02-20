@@ -1,25 +1,31 @@
 from abc import ABC
+from random import randint
+
 
 class Human(ABC):
-    def age(self):
+    def people(self, age, disabled_person, participant_in_the_war, name):
+
+        self.age = age
         print('Вам больше 65 лет?: 1-да, 2-нет')
         age = int(input())
-    def disabled_person(self):
+
+        self.disabled_person = disabled_person
         print('У вас есть инвалидность?: 1-да, 2-нет')
         disabled_person = int(input())
-    def participant_in_the_war(self):
+
+        self.participant_in_the_war = participant_in_the_war
         print('Вы участвовали в войне?: 1-да, 2-нет')
         participant_in_the_war = int(input())
-    def name(self):
+
+        self.name = name
         print('Вас зовут Нияз?: 1-да, я красавчик, 2-нет, я дэбил')
         name = int(input())
 
-    def number(self):
-        if Human.age(1) or Human.disabled_person(1) or Human.participant_in_the_war(1) or Human.name(1):
+        if age == 1 or disabled_person == 1 or participant_in_the_war == 1 or name == 1:
             print('Вы проходите без очереди!')
-        elif Human.age(2) and Human.disabled_person(2) and Human.participant_in_the_war(2) and Human.name(2):
-            print('Вы не можете пройти без очереди')
-
+        elif age == 2 and disabled_person == 2 and participant_in_the_war == 2 and name == 2:
+            num = randint(1, 20)
+            print(f'Ваш номер {num}.')
 
 
 class Queue(ABC):
@@ -38,15 +44,7 @@ class Queue(ABC):
             print('Введите номер существующей услуги.')
 
 
-Human.age(2)
-Human.disabled_person(2)
-Human.participant_in_the_war(2)
-Human.name(1)
-Queue.service_selection(4)
-
-
-
-
-
-
-
+human = Human()
+human.people(age=2, disabled_person=2, participant_in_the_war=2, name=1)
+queue = Queue()
+queue.service_selection()
